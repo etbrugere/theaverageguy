@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Blog — The Average Guy{% endblock %}
+{% block description %}Articles sur le sport, les langues, la philosophie et le code.{% endblock %}
+
+{% block content %}
+
+<section class="page-header">
+    <div class="container">
+        <h1 class="page-header__title">Blog</h1>
+        <p class="page-header__sub">Sport · Langues · Philosophie · Code</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        {% if posts %}
+        <div class="cards-grid cards-grid--blog">
+            {% for post in posts %}
+            <a href="/blog/{{ post.slug }}" class="card">
+                <div class="card__meta">
+                    {% if post.category %}<span class="card__category">{{ post.category }}</span>{% endif %}
+                    {% if post.date %}<span class="card__date">{{ post.date }}</span>{% endif %}
+                </div>
+                <h2 class="card__title">{{ post.title }}</h2>
+                {% if post.excerpt %}<p class="card__excerpt">{{ post.excerpt }}</p>{% endif %}
+                <span class="card__cta">Lire l'article →</span>
+            </a>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="empty-state">
+            <p>Les articles arrivent bientôt.</p>
+        </div>
+        {% endif %}
+    </div>
+</section>
+
+{% endblock %}

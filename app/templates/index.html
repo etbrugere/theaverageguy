@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+
+{% block title %}The Average Guy — Sport, Langues, Philosophie{% endblock %}
+
+{% block content %}
+
+<!-- HERO -->
+<section class="hero">
+    <div class="container hero__inner">
+        <div class="hero__content">
+            <span class="hero__label">Bonjour, je suis Etienne.</span>
+            <h1 class="hero__title">Un polymathe<br>en construction.</h1>
+            <p class="hero__sub">
+                Docteur en chimie, passionné de sport, de langues et de philosophie.
+                J'écris sur ce que j'apprends — pas pour avoir les bonnes réponses,
+                mais pour mieux poser les bonnes questions.
+            </p>
+            <div class="hero__actions">
+                <a href="/blog" class="btn">Lire le blog</a>
+                <a href="/about" class="btn btn--ghost">À propos</a>
+            </div>
+        </div>
+        <div class="hero__tags">
+            <span class="tag">🏋️ Sport</span>
+            <span class="tag">🈳 Langues</span>
+            <span class="tag">📖 Philosophie</span>
+            <span class="tag">💻 Code</span>
+            <span class="tag">🎸 Musique</span>
+        </div>
+    </div>
+</section>
+
+<!-- FEATURED ARTICLES -->
+{% if featured %}
+<section class="section">
+    <div class="container">
+        <div class="section__header">
+            <h2>Derniers articles</h2>
+            <a href="/blog" class="link-accent">Voir tout →</a>
+        </div>
+        <div class="cards-grid">
+            {% for post in featured %}
+            <a href="/blog/{{ post.slug }}" class="card">
+                <div class="card__meta">
+                    {% if post.category %}<span class="card__category">{{ post.category }}</span>{% endif %}
+                    {% if post.date %}<span class="card__date">{{ post.date }}</span>{% endif %}
+                </div>
+                <h3 class="card__title">{{ post.title }}</h3>
+                {% if post.excerpt %}<p class="card__excerpt">{{ post.excerpt }}</p>{% endif %}
+                <span class="card__cta">Lire l'article →</span>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- ABOUT STRIP -->
+<section class="section section--alt">
+    <div class="container about-strip">
+        <div class="about-strip__text">
+            <h2>Pourquoi "The Average Guy" ?</h2>
+            <p>
+                Parce que personne ne part de zéro et tout le monde peut aller loin.
+                Je ne suis pas un expert, je suis quelqu'un qui apprend — en sport,
+                en langues, en musique, en code. Ce site est le journal de bord de cette construction.
+            </p>
+            <a href="/about" class="btn btn--ghost">En savoir plus</a>
+        </div>
+        <div class="about-strip__domains">
+            <div class="domain-item">
+                <span class="domain-item__icon">🌍</span>
+                <span>Japonais · Russe · Mandarin · Polonais</span>
+            </div>
+            <div class="domain-item">
+                <span class="domain-item__icon">🏃</span>
+                <span>Street workout · Force · Endurance · Mobilité</span>
+            </div>
+            <div class="domain-item">
+                <span class="domain-item__icon">🎵</span>
+                <span>Guitare basse · Harmonica</span>
+            </div>
+            <div class="domain-item">
+                <span class="domain-item__icon">🧠</span>
+                <span>Python · Machine Learning · Second cerveau</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- NEWSLETTER CTA -->
+<section class="section">
+    <div class="container">
+        <div class="newsletter-cta">
+            <h2>Rejoins la newsletter</h2>
+            <p>Réflexions hebdomadaires sur le sport, les langues et l'apprentissage. Directement dans ta boîte mail.</p>
+            <form class="newsletter-form newsletter-form--centered" action="#" method="post">
+                <input type="email" name="email" placeholder="ton@email.com" required>
+                <button type="submit" class="btn">S'abonner</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

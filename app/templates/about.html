@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}À propos — The Average Guy{% endblock %}
+{% block description %}Qui est Etienne Brugère ? Docteur en chimie, polymathe en construction.{% endblock %}
+
+{% block content %}
+
+<section class="page-header">
+    <div class="container">
+        <h1 class="page-header__title">À propos</h1>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container container--narrow">
+        <div class="about-page">
+            <p class="about-page__intro">
+                Je m'appelle Etienne Brugère. Docteur en chimie atmosphérique, ingénieur de recherche,
+                et quelqu'un qui a décidé de ne pas se spécialiser — ou plutôt de se spécialiser dans l'apprentissage lui-même.
+            </p>
+
+            <h2>Ce que je fais</h2>
+            <p>
+                J'apprends en parallèle des langues (japonais, russe, mandarin, polonais), je pratique le sport
+                sous toutes ses formes, je joue de la guitare basse et de l'harmonica, et j'écris du code.
+                Pas pour devenir expert dans chaque domaine, mais pour construire quelque chose de cohérent —
+                un cerveau qui fait des connexions là où les autres voient des silos.
+            </p>
+
+            <h2>Pourquoi ce site</h2>
+            <p>
+                Ce site est à la fois un journal de bord et une vitrine. J'y publie ce que j'apprends,
+                ce qui me surprend, ce qui change ma façon de voir. Les articles sont en français,
+                parfois en anglais si la source l'était.
+            </p>
+
+            <h2>Contact</h2>
+            <p>
+                La meilleure façon de me suivre c'est la newsletter — je l'envoie quand j'ai quelque chose
+                à dire, pas à date fixe.
+            </p>
+
+            <a href="#newsletter" class="btn">S'abonner à la newsletter</a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

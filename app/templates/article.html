@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }} — The Average Guy{% endblock %}
+{% block description %}{{ excerpt }}{% endblock %}
+
+{% block content %}
+
+<article class="article">
+    <div class="container container--narrow">
+
+        <div class="article__back">
+            <a href="/blog" class="link-accent">← Retour au blog</a>
+        </div>
+
+        <header class="article__header">
+            <div class="article__meta">
+                {% if category %}<span class="card__category">{{ category }}</span>{% endif %}
+                {% if date %}<span class="card__date">{{ date }}</span>{% endif %}
+            </div>
+            <h1 class="article__title">{{ title }}</h1>
+            {% if excerpt %}<p class="article__excerpt">{{ excerpt }}</p>{% endif %}
+        </header>
+
+        <div class="article__body">
+            {{ content | safe }}
+        </div>
+
+        <div class="article__footer">
+            <a href="/blog" class="btn btn--ghost">← Tous les articles</a>
+        </div>
+
+    </div>
+</article>
+
+{% endblock %}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}The Average Guy{% endblock %}</title>
+    <meta name="description" content="{% block description %}Sport, langues, philosophie et code — les réflexions d'Etienne Brugère.{% endblock %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', path='css/main.css') }}">
+    {% block head %}{% endblock %}
+</head>
+<body>
+
+    <nav class="navbar" id="navbar">
+        <div class="container navbar__inner">
+            <a href="/" class="logo">theaverageguy</a>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="/" class="nav-link">Accueil</a></li>
+                <li><a href="/blog" class="nav-link">Blog</a></li>
+                <li><a href="/about" class="nav-link">À propos</a></li>
+                <li><a href="#newsletter" class="btn btn--sm">Newsletter</a></li>
+            </ul>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Ouvrir le menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="footer" id="newsletter">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <span class="logo">theaverageguy</span>
+                    <p class="footer__tagline">Sport · Langues · Philosophie · Code</p>
+                </div>
+                <div class="footer__nav">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="/">Accueil</a></li>
+                        <li><a href="/blog">Blog</a></li>
+                        <li><a href="/about">À propos</a></li>
+                    </ul>
+                </div>
+                <div class="footer__newsletter">
+                    <h4>Newsletter</h4>
+                    <p>Des réflexions sur le sport, les langues et l'apprentissage. Pas de spam.</p>
+                    <form class="newsletter-form" action="#" method="post">
+                        <input type="email" name="email" placeholder="ton@email.com" required>
+                        <button type="submit" class="btn">S'abonner</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>© 2026 Etienne Brugère — theaverageguy</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', path='js/main.js') }}"></script>
+</body>
+</html>
